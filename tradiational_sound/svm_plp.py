@@ -2,7 +2,6 @@ from sklearn import svm
 from sklearn import preprocessing
 import sklearn.metrics
 import matplotlib.pyplot as plt
-
 import numpy as np
 import scipy
 from scipy.io import wavfile
@@ -37,18 +36,20 @@ def unpickle(file):
         dct = pickle.load(fo, encoding='bytes')
     return dct
 
-
 if __name__ == "__main__":
-    data = unpickle("lcp_t")
-    mydata = data["LCPs"]
+
+    data = unpickle("rplp_t")
+    mydata = data["RPLP"]
     mydata_labels =data["labels"]
+    mydata = np.reshape(mydata,(mydata.shape[0],-1))
+   
     print(mydata.shape)
     print(mydata_labels.shape)
+
     # data preprocess, centerlization
     mydata = preprocessing.scale(mydata)
     print(mydata.shape)
 
-    #  training set and testing set spilt
 
     # shuffer the training data
     state = np.random.get_state()
@@ -65,9 +66,10 @@ if __name__ == "__main__":
     print("testing data size:",test_data.shape)
     print("testing label size:",test_data_labels.shape)
 
-    # 
+
+
     accuray_list=[]
-    for i in range(1,7):
+    for i in range(1,5):
         classifier =svm.SVC(C=2,kernel='poly',gamma='auto',degree=i,decision_function_shape='ovr')
         classifier.fit(my_training_data,my_training_data_label.ravel())
         print("Training accuracy is ",classifier.score(my_training_data,my_training_data_label))
@@ -77,24 +79,12 @@ if __name__ == "__main__":
         test_predict  = classifier.predict(test_data)
         confusion_matrix = sklearn.metrics.confusion_matrix(test_data_labels,test_predict)
         labels_name =["A","E","I","O","U"]
-        plot_confusion_matrix(cm=confusion_matrix,labels_name=labels_name,title="Poly-linear_LPC({}) accuracy is {}".format(i,classifier.score(test_data,test_data_labels)),
-        figname="Poly_LPC{}".format(i))
+        plot_confusion_matrix(cm=confusion_matrix,labels_name=labels_name,title="Poly_RPLP({}) accuracy is {}".format(i,classifier.score(test_data,test_data_labels)),
+        figname="Poly_linear{}".format(i))
     
     plt.plot(range(1,7),accuray_list)
-    plt.xlabel("Poly's Degree")
+    plt.xlabel("Ploy's Degree")
     plt.ylabel("Accuracy rate on Test data")
-    plt.title("Poly SVM with different C")
-    plt.savefig("LCP_accuracy_Poly",format='png')
-
-
-        
-
-
-
-
-
-
-
-
+    plt.title("Poly SVM with different Poly")
+    plt.savefig("RPLP_accuracy_Ploy",format='png')
     
-
