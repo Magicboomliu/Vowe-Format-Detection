@@ -4,4 +4,4 @@ A easy task trying to use InputAduio's MFCC， LPC, PLP, RPLP features together 
 
 The Python verison requires:  
 **(1) numpy, sklearn ,librosa**  
-The C++ version under the warped libSVM.
+The C++ version under the warped **libSVM**.
