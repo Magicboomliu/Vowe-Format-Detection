@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -std=c++11  -g  -rdynamic CMakeFiles/example.dir/example.cpp.o  -o example 

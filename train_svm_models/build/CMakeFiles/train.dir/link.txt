@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -std=c++11 -fsanitize=address -g  -rdynamic CMakeFiles/train.dir/train.cpp.o  -o train -Wl,-rpath,/home/liuzihua/lzh_intern/index_files/train_svm_models/build libsvm.so 

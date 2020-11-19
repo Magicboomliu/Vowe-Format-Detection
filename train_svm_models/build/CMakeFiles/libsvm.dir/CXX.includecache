@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.cpp
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+ctype.h
+-
+float.h
+-
+string.h
+-
+stdarg.h
+-
+limits.h
+-
+locale.h
+-
+svm.h
+/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.h
+
+/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.h
+

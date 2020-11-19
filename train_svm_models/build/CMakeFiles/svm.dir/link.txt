@@ -1,0 +1,1 @@
+/usr/bin/g++-7 -fPIC -std=c++11 -fsanitize=address -g  -shared -Wl,-soname,libsvm.so -o libsvm.so CMakeFiles/svm.dir/svm.cpp.o 

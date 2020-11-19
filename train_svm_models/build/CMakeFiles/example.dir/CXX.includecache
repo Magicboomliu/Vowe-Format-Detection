@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liuzihua/lzh_intern/index_files/train_svm_models/example.cpp
+iostream
+-
+string
+-
+vector
+-
+svm.h
+/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.h
+
+/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.h
+

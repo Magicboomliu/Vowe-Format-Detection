@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/liuzihua/lzh_intern/index_files/train_svm_models/build",
+  "command": "/usr/bin/g++-7  -Dsvm_EXPORTS  -std=c++11 -fsanitize=address -g -fPIC   -o CMakeFiles/svm.dir/svm.cpp.o -c /home/liuzihua/lzh_intern/index_files/train_svm_models/svm.cpp",
+  "file": "/home/liuzihua/lzh_intern/index_files/train_svm_models/svm.cpp"
+},
+{
+  "directory": "/home/liuzihua/lzh_intern/index_files/train_svm_models/build",
+  "command": "/usr/bin/g++-7    -std=c++11 -fsanitize=address -g   -o CMakeFiles/train.dir/train.cpp.o -c /home/liuzihua/lzh_intern/index_files/train_svm_models/train.cpp",
+  "file": "/home/liuzihua/lzh_intern/index_files/train_svm_models/train.cpp"
+}
+]
