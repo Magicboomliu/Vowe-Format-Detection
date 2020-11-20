@@ -19,4 +19,10 @@ fstream
 -
 vector
 -
+numeric
+-
+algorithm
+-
+math.h
+-
 

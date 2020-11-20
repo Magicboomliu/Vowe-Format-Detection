@@ -10,6 +10,5 @@ project(Train)
 #聲明一個 可執行程序
 add_library(svm SHARED svm.cpp)
 # 添加庫文件
-
 add_executable(train train.cpp)
 target_link_libraries(train svm)
