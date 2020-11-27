@@ -9,4 +9,8 @@ A easy task trying to use InputAduio's MFCC， LPC, PLP, RPLP features together 
 * **Lipsync Oculus tools are provided, you can use Native C++ version or the Unity Version. Please note that the usage of this API can only run on MacOs,Win64,Android**.  
 
 
-But the Linux is not supported yet for the reason that the Oculus did not give the source code which makes it hard to compile to .so or .a library.
+But the Linux is not supported yet for the reason that the Oculus did not give the source code which makes it hard to compile to .so or .a library.  
+
+### **Lastest:**  
+A small dataset annoated by OVRLipSync was provided, both C++ and Python Interface were provided, You can use this dataset for vowel classification using the 
+algorithm you like: Deep Learning, SVM, Decision Tree, etc.
