@@ -13,4 +13,24 @@ But the Linux is not supported yet for the reason that the Oculus did not give t
 
 ### **Lastest:**  
 A small dataset annoated by OVRLipSync was provided, both C++ and Python Interface were provided, You can use this dataset for vowel classification using the 
-algorithm you like: Deep Learning, SVM, Decision Tree, etc.
+algorithm you like: Deep Learning, SVM, Decision Tree, etc.  
+**NOTE**:The data Label is 15 dim vector, From 1 to 15 represents the probablity of the class belongings. They are:  
+* sil  
+* PP  
+* FF  
+* TH  
+* DD  
+* kk  
+* CH  
+* SS  
+* nn  
+* RR  
+* aa  
+* E  
+* ih  
+* oh  
+* ou  
+Each Viseme corresponses to a certain mouth motion:  
+
+
+
