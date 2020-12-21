@@ -1,0 +1,35 @@
+
+# Simple graph Compute Spectrogram Matrix
+
+input_stream: "mono_waveform"
+
+output_stream: "spectrogram_matrix"
+
+node {
+  calculator: "RationalFactorResampleCalculator"
+  input_stream: "mono_waveform"
+  output_stream: "resample_waveform"
+  node_options: {
+    [type.googleapis.com/mediapipe.RationalFactorResampleCalculatorOptions] {
+      target_sample_rate: 16000.0
+    }
+  }
+}
+
+node{
+  calculator:"SpectrogramCalculator"
+  input_stream:"resample_waveform"
+  output_stream:"spectrogram_matrix"
+  options {
+  [mediapipe.SpectrogramCalculatorOptions.ext]{
+  frame_duration_seconds: 0.016
+  frame_overlap_seconds: 0.008
+  pad_final_packet:true
+  output_type:SQUARED_MAGNITUDE
+  allow_multichannel_input:false
+  window_type:HAMMING
+  output_scale:1.0
+  use_local_timestamp:false
+  }
+  }
+}

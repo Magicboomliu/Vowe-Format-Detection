@@ -1,0 +1,17 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "XAvatar.moc3",
+		"Textures": [
+			"XAvatar.4096/texture_00.png"
+		],
+		"Physics": "XAvatar.physics3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}
