@@ -1,0 +1,17 @@
+
+# Simple graph.
+
+input_stream: "mono_waveform"
+
+output_stream: "output_category"
+
+node {
+  calculator: "RationalFactorResampleCalculator"
+  input_stream: "mono_waveform"
+  output_stream: "output_category"
+  node_options: {
+    [type.googleapis.com/mediapipe.RationalFactorResampleCalculatorOptions] {
+      target_sample_rate: 16000.0
+    }
+  }
+}
