@@ -14,7 +14,16 @@ GLOG_alsologtostderr=1 bazel run experimental/zihualiu/apps/VisemeReco/specturm 
  --input_audio_path experimental/zihualiu/apps/VisemeReco/resources/haoyuan.mp3 
 }
 
-cmd=${1:-specturm}
+function mfcc(){
+cd ../../../..
+GLOG_alsologtostderr=1 bazel run experimental/zihualiu/apps/VisemeReco/mfcc --define MEDIAPIPE_DISABLE_GPU=1 \
+ -- \
+ --calculator_graph_config_file experimental/zihualiu/apps/VisemeReco/graphs/mel_mfcc.pbtxt \
+ --input_audio_path experimental/zihualiu/apps/VisemeReco/resources/haoyuan.mp3 
+}
+
+
+cmd=${1:-mfcc}
 shift
 
 $cmd "$@"
