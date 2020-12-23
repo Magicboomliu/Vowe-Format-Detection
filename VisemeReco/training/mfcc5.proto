@@ -1,0 +1,14 @@
+syntax = "proto2";
+package tutorial;
+
+message OneDArray {
+  repeated double value = 1;
+}
+
+message TwoDArray{
+  repeated OneDArray array =1;
+}
+
+
+
+

@@ -1,0 +1,57 @@
+
+# Simple graph Compute Spectrogram Matrix
+
+input_stream: "mono_waveform"
+
+output_stream: "viseme"
+
+node {
+  calculator: "RationalFactorResampleCalculator"
+  input_stream: "mono_waveform"
+  output_stream: "resample_waveform"
+  node_options: {
+    [type.googleapis.com/mediapipe.RationalFactorResampleCalculatorOptions] {
+      target_sample_rate: 16000.0
+    }
+  }
+}
+
+node{
+  calculator:"SpectrogramCalculator"
+  input_stream:"resample_waveform"
+  output_stream:"spectrogram_matrix"
+  options {
+  [mediapipe.SpectrogramCalculatorOptions.ext]{
+  frame_duration_seconds: 0.016
+  frame_overlap_seconds: 0.008
+  pad_final_packet:true
+  output_type:SQUARED_MAGNITUDE
+  allow_multichannel_input:false
+  window_type:HAMMING
+  output_scale:1.0
+  use_local_timestamp:false
+  }
+  }
+}
+
+node {
+  calculator: "MfccCalculator"
+  input_stream: "spectrogram_matrix"
+  output_stream: "mel_mfcc"
+  options {
+    [mediapipe.MfccCalculatorOptions.ext] {
+      mel_spectrum_params {
+      channel_count: 20
+      min_frequency_hertz: 125.0
+      max_frequency_hertz: 3800.0
+       }
+       mfcc_count: 13
+     }
+   }
+ }
+
+node{
+  calculator:"MlpInferenceCalculator"
+  input_stream:"mel_mfcc"
+  output_stream:"viseme"
+}
