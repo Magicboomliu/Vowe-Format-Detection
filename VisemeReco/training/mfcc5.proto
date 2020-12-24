@@ -5,10 +5,6 @@ message OneDArray {
   repeated double value = 1;
 }
 
-message TwoDArray{
-  repeated OneDArray array =1;
+message TwoDArray {
+  repeated OneDArray array = 1;
 }
-
-
-
-

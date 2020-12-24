@@ -4,13 +4,12 @@ load("@rules_proto//proto:defs.bzl", "proto_library")
 cc_binary(
     name = "training_data",
     srcs = ["training_data.cc"],
-   data = glob([
+    data = glob([
         "data/**/*",
     ]),
-
     deps = [
-        "//third_party/libSVM:libSVM",
         ":mfcc5_cc_proto",
+        "//third_party/libSVM",
         "@com_google_absl//absl/memory",
     ],
 )
@@ -25,4 +24,3 @@ proto_library(
     srcs = ["mfcc5.proto"],
     visibility = ["//visibility:public"],
 )
-

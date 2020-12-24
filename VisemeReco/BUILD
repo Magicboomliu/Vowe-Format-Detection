@@ -32,7 +32,6 @@ cc_binary(
     ],
 )
 
-
 cc_binary(
     name = "specturm",
     srcs = ["compute_spec.cc"],
@@ -41,9 +40,9 @@ cc_binary(
         "graphs/specturm.pbtxt",
     ]),
     deps = [
-        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/audio:basic_time_series_calculators",
         "//mediapipe/calculators/audio:rational_factor_resample_calculator",
+        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/core:add_header_calculator",
         "//mediapipe/framework:calculator_framework",
         "//mediapipe/framework/formats:image_frame",
@@ -76,10 +75,10 @@ cc_binary(
         "graphs/mel_mfcc.pbtxt",
     ]),
     deps = [
-        "//mediapipe/calculators/audio:mfcc_mel_calculators",
-        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/audio:basic_time_series_calculators",
+        "//mediapipe/calculators/audio:mfcc_mel_calculators",
         "//mediapipe/calculators/audio:rational_factor_resample_calculator",
+        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/core:add_header_calculator",
         "//mediapipe/framework:calculator_framework",
         "//mediapipe/framework/formats:image_frame",
@@ -112,11 +111,12 @@ cc_binary(
         "graphs/full_simple.pbtxt",
     ]),
     deps = [
+        ":body_deps",
         "//experimental/zihualiu/apps/VisemeReco/calculators:svm_classifier_calculator",
-        "//mediapipe/calculators/audio:mfcc_mel_calculators",
-        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/audio:basic_time_series_calculators",
+        "//mediapipe/calculators/audio:mfcc_mel_calculators",
         "//mediapipe/calculators/audio:rational_factor_resample_calculator",
+        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/core:add_header_calculator",
         "//mediapipe/framework:calculator_framework",
         "//mediapipe/framework/formats:image_frame",
@@ -141,6 +141,13 @@ cc_binary(
     ],
 )
 
+cc_library(
+    name = "body_deps",
+    data = [
+        "//experimental/zihualiu/apps/VisemeReco/training/svm_model",
+    ],
+)
+
 cc_binary(
     name = "full_mlp",
     srcs = ["full_mlp.cc"],
@@ -150,10 +157,10 @@ cc_binary(
     ]),
     deps = [
         "//experimental/zihualiu/apps/VisemeReco/calculators:mlp_inference_calculator",
-        "//mediapipe/calculators/audio:mfcc_mel_calculators",
-        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/audio:basic_time_series_calculators",
+        "//mediapipe/calculators/audio:mfcc_mel_calculators",
         "//mediapipe/calculators/audio:rational_factor_resample_calculator",
+        "//mediapipe/calculators/audio:spectrogram_calculator",
         "//mediapipe/calculators/core:add_header_calculator",
         "//mediapipe/framework:calculator_framework",
         "//mediapipe/framework/formats:image_frame",

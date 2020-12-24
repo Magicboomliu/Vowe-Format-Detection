@@ -1,0 +1,12 @@
+syntax = 'proto2';
+
+package experimental;
+
+import "mediapipe/framework/calculator.proto";
+
+message SvmClassificationCalculatorOptions {
+  extend mediapipe.CalculatorOptions {
+    optional SvmClassificationCalculatorOptions ext = 1000957;
+  }
+  optional int32 classification_type = 1 [default = 0];
+}

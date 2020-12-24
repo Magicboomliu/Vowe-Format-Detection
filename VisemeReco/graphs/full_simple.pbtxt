@@ -1,5 +1,4 @@
-
-# Simple graph Compute Spectrogram Matrix
+# Simple graph Compute Viseme
 
 input_stream: "mono_waveform"
 
@@ -54,5 +53,10 @@ node {
   calculator:"SvmClassificationCalculator"
   input_stream:"mel_mfcc"
   output_stream:"viseme"
+  options:{
+  [experimental.SvmClassificationCalculatorOptions.ext]{
+       classification_type : 0; # 0 for 5 classification, 1 for 9 classification.
+     }
+  }
  }
 
