@@ -1,4 +1,4 @@
-# Vowe-Format-Detection
+# Viseme-Format-Detection
 
 
 * The Python verison requires:**numpy, sklearn ,librosa**  
